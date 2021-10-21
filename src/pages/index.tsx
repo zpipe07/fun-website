@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+
+import FloatingHead from 'components/FloatingHead'
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,8 @@ const Home: NextPage = () => {
 
       <main>
         <h1>Hello, world!</h1>
+
+        <FloatingHead />
       </main>
 
       <footer>
