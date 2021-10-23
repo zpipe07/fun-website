@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Typography } from '@mui/material'
+import { useTheme } from '@mui/system'
 
 type Props = {
   children: string
@@ -6,26 +8,48 @@ type Props = {
 
 const TypewriterText: React.FC<Props> = ({ children }) => {
   const chars = children.split('')
+
   const [typedChars, setTypeChars] = useState('')
 
+  const theme = useTheme()
+
   useEffect(() => {
-    const interval: ReturnType<typeof setInterval> = setInterval(() => {
-      const nextChar = chars.shift()
+    const typeCharacter = () => {
+      const timeout = Math.random() * 750
 
-      if (!nextChar) return clearInterval(interval)
+      setTimeout(() => {
+        const nextChar = chars.shift()
 
-      setTypeChars((prevState) => {
-        return prevState + nextChar
-      })
-    }, 250)
+        setTypeChars((prevState) => {
+          return prevState + nextChar
+        })
+
+        if (chars.length > 0) {
+          typeCharacter()
+        }
+      }, timeout)
+    }
+
+    typeCharacter()
   }, [])
 
   return (
-    <>
-      <p>TypewriterText</p>
-      <p>{children}</p>
-      <p>{typedChars}</p>
-    </>
+    <Typography
+      variant="h4"
+      component="h1"
+      sx={{
+        textAlign: 'center',
+
+        '&::after': {
+          content: '"|"',
+          fontWeight: '100',
+          color: 'transparent',
+          backgroundColor: theme.palette.text.primary,
+        },
+      }}
+    >
+      {typedChars}
+    </Typography>
   )
 }
 

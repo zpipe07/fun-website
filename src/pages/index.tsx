@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Typography } from '@mui/material'
+
 import TypewriterText from 'components/TypewriterText'
 
 const Home: NextPage = () => {
@@ -11,11 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Typography variant="h4" component="h1" align="center" gutterBottom>
-          Hello, world!
-        </Typography>
-
-        <TypewriterText>Here&apos;s some text</TypewriterText>
+        <TypewriterText>Hello, world!!!</TypewriterText>
       </main>
     </>
   )
