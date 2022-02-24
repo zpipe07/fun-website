@@ -4,20 +4,11 @@ import {
   ThemeProvider as MuiThemProvider,
 } from '@mui/material/styles'
 
-// const theme = createTheme({
-//   typography: {
-//     fontFamily: ['Roboto Mono', 'monospace'].join(','),
-//   },
-//   palette: {
-//     mode: 'dark',
-//   },
-// })
-
 interface Props {
   children: React.ReactNode
 }
 
-const ColorModeContext = React.createContext({
+export const ColorModeContext = React.createContext({
   toggleColorMode: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
 })
 
@@ -37,6 +28,9 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
       createTheme({
         palette: {
           mode,
+        },
+        typography: {
+          fontFamily: ['Roboto Mono', 'monospace'].join(','),
         },
       }),
     [mode],
