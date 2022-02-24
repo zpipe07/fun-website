@@ -9,7 +9,7 @@ type Props = {
 const TypewriterText: React.FC<Props> = ({ children }) => {
   const chars = children.split('')
 
-  const [typedChars, setTypeChars] = useState('')
+  const [typedChars, setTypedChars] = useState('')
 
   const theme = useTheme()
 
@@ -20,7 +20,7 @@ const TypewriterText: React.FC<Props> = ({ children }) => {
       setTimeout(() => {
         const nextChar = chars.shift()
 
-        setTypeChars((prevState) => {
+        setTypedChars((prevState) => {
           return prevState + nextChar
         })
 
@@ -31,7 +31,7 @@ const TypewriterText: React.FC<Props> = ({ children }) => {
     }
 
     typeCharacter()
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Typography
