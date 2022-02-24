@@ -31,7 +31,7 @@ const TypewriterText: React.FC<Props> = ({ children }) => {
     }
 
     typeCharacter()
-  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Typography
